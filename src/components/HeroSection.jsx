@@ -37,9 +37,7 @@ export const HeroSection = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 opacity-0 animate-fade-in-delay-2">
-              Analytics, business intelligence, AI, and product strategy take up
-              most of my workflow — and probably more brain space than they
-              should.
+              I work with analytics, business intelligence, AI, and product strategy take up most of my workflow and probably more brain space than they should.
             </p>
           </div>
 

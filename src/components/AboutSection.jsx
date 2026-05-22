@@ -2,15 +2,12 @@ export const AboutSection = () => {
   return (
     <section id="about" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">About</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">About Me</h2>
 
         <div className="max-w-4xl mx-auto space-y-8 text-left">
           <div className="space-y-4">
             <p className="text-muted-foreground">
-              Stepping into my final year and currently interning at ISRO,
-              where the project is shaping how I use data and analytics to turn
-              ideas into outcomes that drive smarter business and product
-              decisions.
+              Entering final year at <a href="https://woxsen.edu.in/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Woxsen University</a> and currently interning at <a href="https://www.isro.gov.in/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">ISRO</a> where I’m using data and analytics (plus way too many tabs open at once) to drive smarter business and product decisions.
             </p>
 
             <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
