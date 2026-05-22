@@ -4,39 +4,67 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4"
+      className="relative min-h-screen px-4 pt-28 pb-20"
     >
-      <div className="container max-w-4xl mx-auto text-center z-10">
-        <div className="space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <span className="opacity-0 animate-fade-in"> Hi, I'm</span>
-            <span className="text-primary opacity-0 animate-fade-in-delay-1">
-              {" "}
-              Pedro
-            </span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
-              {" "}
-              Machado
-            </span>
-          </h1>
+      <div className="container mx-auto max-w-6xl relative z-10 grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
+          <div className="relative w-full max-w-md">
+            <div className="absolute inset-0 rounded-[2rem] bg-primary/15 blur-3xl" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card/70 p-5 shadow-2xl backdrop-blur-sm">
+              <div className="aspect-[4/5] rounded-[1.5rem] border border-dashed border-primary/25 bg-[linear-gradient(135deg,rgba(255,255,255,0.9),rgba(203,213,225,0.55))] flex flex-col items-center justify-center gap-4 text-center p-6">
+                <div className="h-44 w-44 rounded-full border border-primary/25 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.95),rgba(148,163,184,0.3)_45%,rgba(15,23,42,0.2)_100%)] shadow-[0_0_80px_rgba(148,163,184,0.22)] flex items-center justify-center">
+                  <span className="text-sm font-medium text-muted-foreground">
+                    Add your image here
+                  </span>
+                </div>
+                <div>
+                  <p className="text-sm uppercase tracking-[0.35em] text-primary/80">
+                    Portrait slot
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground max-w-xs">
+                    Replace this placeholder with your photo once you upload it.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            I create stellar web experiences with modern technologies.
-            Specializing in front-end development, I build interfaces that are
-            both beautiful and functional.
-          </p>
+        <div className="order-1 lg:order-2 text-center lg:text-left space-y-8">
+          <div className="space-y-4">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight opacity-0 animate-fade-in-delay-1">
+              Hi, Muskan here.
+            </h1>
 
-          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 opacity-0 animate-fade-in-delay-2">
+              Analytics, business intelligence, AI, and product strategy take up
+              most of my workflow — and probably more brain space than they
+              should.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4 opacity-0 animate-fade-in-delay-4">
             <a href="#projects" className="cosmic-button">
-              View My Work
+              View Projects
+            </a>
+            <a
+              href="#more-about"
+              className="px-6 py-2 rounded-full border border-border bg-background/70 backdrop-blur-sm hover:border-primary/60 transition-colors"
+            >
+              More About Me
+            </a>
+          </div>
+
+          <div className="flex justify-center lg:justify-start pt-3 animate-fade-in-delay-4">
+            <a
+              href="#about"
+              className="inline-flex flex-col items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <span>Scroll</span>
+              <ArrowDown className="h-5 w-5 text-primary animate-bounce" />
             </a>
           </div>
         </div>
-      </div>
-
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-        <span className="text-sm text-muted-foreground mb-2"> Scroll </span>
-        <ArrowDown className="h-5 w-5 text-primary" />
       </div>
     </section>
   );

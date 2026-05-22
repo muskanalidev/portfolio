@@ -1,18 +1,13 @@
 import { useEffect, useState } from "react";
 
-// id, size, x, y, opacity, animationDuration
-// id, size, x, y, delay, animationDuration
-
 export const StarBackground = () => {
-  const [stars, setStars] = useState([]);
-  const [meteors, setMeteors] = useState([]);
+  const [chromeBands, setChromeBands] = useState([]);
 
   useEffect(() => {
-    generateStars();
-    generateMeteors();
+    generateChromeBands();
 
     const handleResize = () => {
-      generateStars();
+      generateChromeBands();
     };
 
     window.addEventListener("resize", handleResize);
@@ -20,76 +15,40 @@ export const StarBackground = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const generateStars = () => {
-    const numberOfStars = Math.floor(
-      (window.innerWidth * window.innerHeight) / 10000
-    );
+  const generateChromeBands = () => {
+    const bands = [
+      { id: 1, x: 8, y: 12, width: 42, height: 18, opacity: 0.45, blur: 40, rotation: -18 },
+      { id: 2, x: 48, y: 8, width: 34, height: 20, opacity: 0.35, blur: 36, rotation: 14 },
+      { id: 3, x: 62, y: 36, width: 28, height: 28, opacity: 0.25, blur: 44, rotation: 26 },
+      { id: 4, x: 14, y: 62, width: 50, height: 22, opacity: 0.3, blur: 42, rotation: -10 },
+      { id: 5, x: 72, y: 68, width: 20, height: 18, opacity: 0.28, blur: 34, rotation: 18 },
+    ];
 
-    const newStars = [];
-
-    for (let i = 0; i < numberOfStars; i++) {
-      newStars.push({
-        id: i,
-        size: Math.random() * 3 + 1,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        opacity: Math.random() * 0.5 + 0.5,
-        animationDuration: Math.random() * 4 + 2,
-      });
-    }
-
-    setStars(newStars);
-  };
-
-  const generateMeteors = () => {
-    const numberOfMeteors = 4;
-    const newMeteors = [];
-
-    for (let i = 0; i < numberOfMeteors; i++) {
-      newMeteors.push({
-        id: i,
-        size: Math.random() * 2 + 1,
-        x: Math.random() * 100,
-        y: Math.random() * 20,
-        delay: Math.random() * 15,
-        animationDuration: Math.random() * 3 + 3,
-      });
-    }
-
-    setMeteors(newMeteors);
+    setChromeBands(bands);
   };
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      {stars.map((star) => (
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 bg-[linear-gradient(135deg,#f9fbff_0%,#d7dde7_24%,#fdfdfd_46%,#b9c1cd_65%,#f4f7fb_100%)]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.95),transparent_30%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.65),transparent_24%),radial-gradient(circle_at_50%_80%,rgba(255,255,255,0.45),transparent_28%)]" />
+      <div className="absolute inset-0 bg-[repeating-linear-gradient(115deg,rgba(255,255,255,0.18)_0,rgba(255,255,255,0.18)_2px,transparent_2px,transparent_18px)] opacity-30" />
+      {chromeBands.map((band) => (
         <div
-          key={star.id}
-          className="star animate-pulse-subtle"
+          key={band.id}
+          className="absolute rounded-full animate-pulse-subtle"
           style={{
-            width: star.size + "px",
-            height: star.size + "px",
-            left: star.x + "%",
-            top: star.y + "%",
-            opacity: star.opacity,
-            animationDuration: star.animationDuration + "s",
+            left: band.x + "%",
+            top: band.y + "%",
+            width: band.width + "%",
+            height: band.height + "%",
+            opacity: band.opacity,
+            filter: `blur(${band.blur}px) saturate(1.3)`,
+            transform: `rotate(${band.rotation}deg)`,
+            background:
+              "linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(180,188,203,0.68) 24%, rgba(255,255,255,0.95) 48%, rgba(148,160,180,0.62) 74%, rgba(255,255,255,0.92) 100%)",
           }}
         />
       ))}
-
-      {meteors.map((meteor) => (
-        <div
-          key={meteor.id}
-          className="meteor animate-meteor"
-          style={{
-            width: meteor.size * 50 + "px",
-            height: meteor.size * 2 + "px",
-            left: meteor.x + "%",
-            top: meteor.y + "%",
-            animationDelay: meteor.delay,
-            animationDuration: meteor.animationDuration + "s",
-          }}
-        />
-      ))}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.35)_52%,rgba(125,135,150,0.25)_100%)] mix-blend-soft-light" />
     </div>
   );
 };

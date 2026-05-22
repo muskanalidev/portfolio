@@ -1,30 +1,35 @@
 import { Navbar } from "../components/Navbar";
-import { ThemeToggle } from "../components/ThemeToggle";
-import { StarBackground } from "@/components/StarBackground";
+import LiquidEther from "../components/LiquidEther";
 import { HeroSection } from "../components/HeroSection";
 import { AboutSection } from "../components/AboutSection";
-import { SkillsSection } from "../components/SkillsSection";
 import { ProjectsSection } from "../components/ProjectsSection";
-import { ContactSection } from "../components/ContactSection";
+import { AchievementsSection } from "../components/AchievementsSection";
+import { MoreAboutSection } from "../components/MoreAboutSection";
 import { Footer } from "../components/Footer";
 
 export const Home = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Theme Toggle */}
-      <ThemeToggle />
-      {/* Background Effects */}
-      <StarBackground />
+    <div className="min-h-screen text-foreground overflow-x-hidden relative">
+      {/* Liquid Ether Background — fixed, full-viewport, behind everything */}
+      <LiquidEther
+        mouseForce={4}
+        cursorSize={240}
+        isViscous={true}
+        viscous={15}
+        colors={['#5227FF', '#FF9FFC', '#B497CF', '#ffffff']}
+        style={{ backgroundColor: '#e6b0b9' }}
+      />
 
       {/* Navbar */}
       <Navbar />
-      {/* Main Content */}
-      <main>
+
+      {/* Main Content — relative + z-10 so it layers above the background */}
+      <main className="relative z-10">
         <HeroSection />
         <AboutSection />
-        <SkillsSection />
         <ProjectsSection />
-        <ContactSection />
+        <AchievementsSection />
+        <MoreAboutSection />
       </main>
 
       {/* Footer */}
