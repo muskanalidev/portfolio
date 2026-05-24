@@ -1,5 +1,4 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
-import { FaultyTerminalBackground } from "@/components/BackgroundEffects";
 
 const projects = [
   {
@@ -17,7 +16,6 @@ const projects = [
 export const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 px-4 relative overflow-hidden">
-      <FaultyTerminalBackground />
       <div className="container mx-auto max-w-5xl relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-white">
           My <span className="text-primary-foreground">Projects</span>

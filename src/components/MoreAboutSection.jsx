@@ -1,5 +1,4 @@
 import { Facebook, Instagram, Linkedin, Music2, Plane, Waves } from "lucide-react";
-import { GridMotionBackground } from "@/components/BackgroundEffects";
 
 const socialLinks = [
   { name: "Instagram", href: "https://www.instagram.com/muskan4li/", icon: Instagram },
@@ -21,7 +20,6 @@ const enjoys = ["Amusement parks and the adrenaline rush", "Travelling", "Cats",
 export const MoreAboutSection = () => {
   return (
     <section id="more-about" className="py-24 px-4 relative overflow-hidden">
-      <GridMotionBackground />
       <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           More <span className="text-primary">About Me</span>

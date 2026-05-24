@@ -1,5 +1,3 @@
-import { DomeGalleryBackground } from "@/components/BackgroundEffects";
-
 const achievements = [
   { id: 1, title: "Award / milestone", caption: "Upload photo here" },
   { id: 2, title: "Competition / event", caption: "Upload photo here" },
@@ -11,7 +9,6 @@ const achievements = [
 export const AchievementsSection = () => {
   return (
     <section id="achievements" className="py-24 px-4 relative overflow-hidden">
-      <DomeGalleryBackground />
       <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-white">
           <span className="text-primary">Achievements</span>

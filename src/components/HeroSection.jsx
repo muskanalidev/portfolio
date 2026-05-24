@@ -11,19 +11,14 @@ export const HeroSection = () => {
           <div className="relative w-full max-w-md">
             <div className="absolute inset-0 rounded-[2rem] bg-primary/15 blur-3xl" />
             <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card/70 p-5 shadow-2xl backdrop-blur-sm">
-              <div className="aspect-[4/5] rounded-[1.5rem] border border-dashed border-primary/25 bg-[linear-gradient(135deg,rgba(255,255,255,0.9),rgba(203,213,225,0.55))] flex flex-col items-center justify-center gap-4 text-center p-6">
-                <div className="h-44 w-44 rounded-full border border-primary/25 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.95),rgba(148,163,184,0.3)_45%,rgba(15,23,42,0.2)_100%)] shadow-[0_0_80px_rgba(148,163,184,0.22)] flex items-center justify-center">
-                  <span className="text-sm font-medium text-muted-foreground">
-                    Add your image here
-                  </span>
-                </div>
-                <div>
-                  <p className="text-sm uppercase tracking-[0.35em] text-primary/80">
-                    Portrait slot
-                  </p>
-                  <p className="mt-2 text-sm text-muted-foreground max-w-xs">
-                    Replace this placeholder with your photo once you upload it.
-                  </p>
+              <div className="aspect-[4/5] rounded-[1.5rem] border border-dashed border-primary/25 bg-[linear-gradient(135deg,rgba(255,255,255,0.9),rgba(203,213,225,0.55))] flex flex-col items-center justify-center gap-4 text-center p-6 mix-blend-multiply">
+                <div className="w-full h-full rounded-[1.5rem] overflow-hidden flex items-center justify-center relative">
+                  <img 
+                    src="/profile.png" 
+                    alt="Muskan Profile" 
+                    className="w-full h-full object-cover mix-blend-multiply" 
+                  />
+                  <div className="absolute inset-0 bg-transparent" style={{ mixBlendMode: 'color' }}></div>
                 </div>
               </div>
             </div>
