@@ -32,13 +32,13 @@ export const HeroSection = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 opacity-0 animate-fade-in-delay-2">
-              I work with analytics, business intelligence, AI, and product strategy take up most of my workflow and probably more brain space than they should.
+              Engineering student currently interning in data science at ISRO. Outside of that, I work across analytics, business intelligence, AI & product strategy that takes up the rest of my workflow and probably more brain space than they should.
             </p>
           </div>
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
-              View Projects
+            <a href="#ContactSection" className="cosmic-button">
+              say hi!
             </a>
             <a
               href="#more-about"

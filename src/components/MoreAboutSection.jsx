@@ -1,21 +1,21 @@
-import { Facebook, Instagram, Linkedin, Music2, Plane, Waves } from "lucide-react";
+import { Facebook, Instagram, Linkedin, volleyball, star, footprints, Plane, Waves, cherry } from "lucide-react";
 
 const socialLinks = [
   { name: "Instagram", href: "https://www.instagram.com/muskan4li/", icon: Instagram },
-  { name: "LinkedIn", href: "#", icon: Linkedin },
-  { name: "Facebook", href: "#", icon: Facebook },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/muskanali1/", icon: Linkedin },
+  { name: "Youtube", href: "https://www.youtube.com/@muskanalis", icon: Youtube },
 ];
 
 const hobbies = [
-  { name: "Football", icon: Music2 },
-  { name: "Dancing", icon: Music2 },
-  { name: "Running", icon: Plane },
+  { name: "Football", icon: volleyball },
+  { name: "Dancing", icon: star },
+  { name: "Running", icon: footprints },
   { name: "Learn trading", icon: Plane },
   { name: "Swimming", icon: Waves },
-  { name: "Badminton", icon: Waves },
+  { name: "Badminton", icon: cherry },
 ];
 
-const enjoys = ["Amusement parks and the adrenaline rush", "Travelling", "Cats", "Beaches"];
+const enjoys = ["Amusement parks", "Travelling", "Cats", "Beaches"];
 
 export const MoreAboutSection = () => {
   return (
@@ -25,13 +25,12 @@ export const MoreAboutSection = () => {
           More <span className="text-primary">About Me</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          A closer look at the side of me beyond work, project delivery, and
-          academics.
+          a closer look at the side of me beyond work-
         </p>
 
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="rounded-3xl border border-border bg-card/85 p-6 shadow-xl backdrop-blur-sm">
-            <p className="text-sm uppercase tracking-[0.35em] text-primary/80">Social media</p>
+            <p className="text-sm uppercase tracking-[0.35em] text-primary/80">social media</p>
             <div className="mt-6 space-y-4">
               {socialLinks.map((item) => {
                 const Icon = item.icon;
@@ -56,7 +55,7 @@ export const MoreAboutSection = () => {
           <div className="rounded-3xl border border-border bg-card/85 p-6 shadow-xl backdrop-blur-sm lg:col-span-1">
             <p className="text-sm uppercase tracking-[0.35em] text-primary/80">Hobbies</p>
             <p className="mt-4 text-muted-foreground">
-              I like staying active and learning new things, and I plan to add
+              i like staying active and learning new things, and i plan to add
               pictures for each of these hobbies once the site is ready.
             </p>
             <div className="mt-6 grid grid-cols-2 gap-3">
