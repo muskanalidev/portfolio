@@ -1,29 +1,35 @@
 import CurvedLoop from "./CurvedLoop";
 import CircularGallery from "./CircularGallery";
+import muskan1 from "/Users/muskanali/my new website portfolio/src2/assets2/IMG_4892 2.jpg"
+import muskaan2 from "/Users/muskanali/my new website portfolio/src2/assets2/IMG_5968.jpg"
+import muskaan3 from "/Users/muskanali/my new website portfolio/src2/assets2/PHOTO-2026-02-19-17-12-43.jpg"
+import muskaan4 from "src2/assets2/WhatsApp Image 2026-04-23 at 11.34.22 AM.jpg"
+import muskaan5 from "/Users/muskanali/my new website portfolio/src2/assets2/WhatsApp Image 2026-06-04 at 5.15.32 PM.jpg"
+import muskaan6 from "/Users/muskanali/my new website portfolio/src2/assets2/WhatsApp Image 2026-06-04 at 5.18.51 PM.jpg"  
 
 const galleryItems = [
   {
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+    image: "muskan1",
     text: "Data Science",
   },
   {
-    image: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=80",
+    image: "muskan2",
     text: "ISRO Space Research",
   },
   {
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+    image: "muskan3",
     text: "Artificial Intelligence",
   },
   {
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+    image: "muskan4",
     text: "Business Intelligence",
   },
   {
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+    image: "muskan5",
     text: "Product Strategy",
   },
   {
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    image: "muskan6",
     text: "Engineering Projects",
   },
 ];
@@ -36,9 +42,9 @@ export const AchievementsSection = () => {
         {/* Title Curved Loop */}
         <div className="w-full max-w-5xl mb-6 overflow-visible">
           <CurvedLoop
-            marqueeText="ACHIEVEMENTS ✦ MILESTONES ✦ RECOGNITION ✦ ISRO INTERN ✦ AI & PRODUCT STRATEGY ✦"
+            marqueeText="✦ A C H I E V E M E N T S ✦"
             speed={2}
-            curveAmount={100}
+            curveAmount={200}
             direction="left"
             interactive={true}
             className="curved-loop-accent-text"
