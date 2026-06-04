@@ -17,7 +17,7 @@ export const Home = () => {
         isViscous={true}
         viscous={15}
         colors={['#5227FF', '#FF9FFC', '#B497CF', '#ffffff']}
-        style={{ backgroundColor: '#e6b0b9' }}
+        style={{ backgroundColor: '#04060c' }}
       />
 
       {/* Navbar */}

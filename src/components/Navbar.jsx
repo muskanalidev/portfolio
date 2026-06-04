@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import GooeyNav from "./GooeyNav";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -22,6 +23,12 @@ export const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const gooeyItems = navItems.map((item) => ({
+    label: item.name,
+    href: item.href,
+  }));
+
   return (
     <nav
       className={cn(
@@ -41,16 +48,8 @@ export const Navbar = () => {
         </a>
 
         {/* desktop nav */}
-        <div className="hidden md:flex space-x-8">
-          {navItems.map((item, key) => (
-            <a
-              key={key}
-              href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
-            >
-              {item.name}
-            </a>
-          ))}
+        <div className="hidden md:block">
+          <GooeyNav items={gooeyItems} />
         </div>
 
         {/* mobile nav */}

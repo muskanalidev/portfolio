@@ -1,79 +1,62 @@
-const achievements = [
-  { id: 1, title: "Award / milestone", caption: "Upload photo here" },
-  { id: 2, title: "Competition / event", caption: "Upload photo here" },
-  { id: 3, title: "Certificate / highlight", caption: "Upload photo here" },
-  { id: 4, title: "Feature / recognition", caption: "Upload photo here" },
-  { id: 5, title: "Portrait moment", caption: "Upload photo here" },
+import CurvedLoop from "./CurvedLoop";
+import CircularGallery from "./CircularGallery";
+
+const galleryItems = [
+  {
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+    text: "Data Science",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=80",
+    text: "ISRO Space Research",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+    text: "Artificial Intelligence",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+    text: "Business Intelligence",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+    text: "Product Strategy",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    text: "Engineering Projects",
+  },
 ];
 
 export const AchievementsSection = () => {
   return (
-    <section id="achievements" className="py-24 px-4 relative overflow-hidden">
-      <div className="container mx-auto max-w-6xl relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-white">
-          <span className="text-primary">Achievements</span>
-        </h2>
-        <p className="text-center text-white/75 mb-12 max-w-2xl mx-auto">
-          This space is reserved for a dome gallery. Upload the final pictures
-          here once they are ready and the layout will hold them in a curved,
-          display-style arrangement.
-        </p>
-
-        <div className="relative mx-auto hidden h-[34rem] max-w-5xl lg:block">
-          {achievements.map((item, index) => {
-            const positions = [
-              { left: "6%", top: "56%", rotate: "-18deg", size: "17rem", zIndex: 20 },
-              { left: "22%", top: "34%", rotate: "-9deg", size: "17rem", zIndex: 30 },
-              { left: "50%", top: "18%", rotate: "0deg", size: "18rem", zIndex: 40 },
-              { left: "58%", top: "34%", rotate: "9deg", size: "17rem", zIndex: 30 },
-              { left: "74%", top: "56%", rotate: "18deg", size: "17rem", zIndex: 20 },
-            ];
-            const position = positions[index];
-
-            return (
-              <div
-                key={item.id}
-                className="absolute rounded-[2rem] border border-white/15 bg-white/10 p-4 shadow-2xl backdrop-blur-md"
-                style={{
-                  left: position.left,
-                  top: position.top,
-                  width: position.size,
-                  height: position.size,
-                  transform: `translateX(-50%) rotate(${position.rotate})`,
-                  zIndex: position.zIndex,
-                }}
-              >
-                <div className="flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.45),rgba(255,255,255,0.08))] p-4 text-left">
-                  <div className="flex-1 rounded-[1.25rem] border border-dashed border-white/20 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),rgba(255,255,255,0.03))] flex items-center justify-center text-center">
-                    <div>
-                      <p className="text-sm uppercase tracking-[0.35em] text-white/70">
-                        {item.caption}
-                      </p>
-                      <p className="mt-3 text-lg font-semibold text-white">
-                        {item.title}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+    <section id="achievements" className="py-20 px-4 relative overflow-hidden">
+      <div className="container mx-auto max-w-6xl relative z-10 flex flex-col items-center">
+        
+        {/* Title Curved Loop */}
+        <div className="w-full max-w-5xl mb-6 overflow-visible">
+          <CurvedLoop
+            marqueeText="ACHIEVEMENTS ✦ MILESTONES ✦ RECOGNITION ✦ ISRO INTERN ✦ AI & PRODUCT STRATEGY ✦"
+            speed={2}
+            curveAmount={100}
+            direction="left"
+            interactive={true}
+            className="curved-loop-accent-text"
+          />
         </div>
 
-        <div className="grid gap-4 lg:hidden sm:grid-cols-2">
-          {achievements.map((item) => (
-            <div
-              key={item.id}
-              className="rounded-2xl border border-white/15 bg-white/10 p-4 text-white shadow-xl backdrop-blur-md"
-            >
-              <div className="aspect-[4/3] rounded-xl border border-dashed border-white/20 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),rgba(255,255,255,0.03))]" />
-              <p className="mt-4 text-sm uppercase tracking-[0.3em] text-white/65">
-                {item.caption}
-              </p>
-              <p className="mt-2 font-semibold">{item.title}</p>
-            </div>
-          ))}
+        {/* Dome Gallery Wrapper */}
+        <div className="w-full relative h-[450px] md:h-[550px] overflow-hidden rounded-3xl border border-white/5 bg-black/10 backdrop-blur-[2px]">
+          <CircularGallery
+            items={galleryItems}
+            bend={-3}
+            textColor="#FFFFFF"
+            borderRadius={0.15}
+            scrollSpeed={2}
+            scrollEase={0.05}
+          />
         </div>
+
       </div>
     </section>
   );

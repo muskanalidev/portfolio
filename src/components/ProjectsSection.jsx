@@ -6,7 +6,7 @@ const projects = [
     title: "Ozone Trend Analysis & Predictive Modelling @ISRO",
     description:
       "Analyzing 50 years of satellite-based atmospheric ozone data to identify long-term trends and building predictive models to forecast ozone layer variations.",
-    image: "/projects/ozone.png",
+    image: "/projects/ozone.jpg",
     tags: ["Python", "Time-series", "Remote Sensing", "Data Analysis"],
     demoUrl: "#",
     githubUrl: "#",
@@ -30,13 +30,14 @@ export const ProjectsSection = () => {
           {projects.map((project, key) => (
             <div
               key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover text-white"
             >
               <div className="h-48 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover object-bottom transition-transform duration-500 group-hover:scale-110"
+                  style={{ objectPosition: 'center bottom' }}
                 />
               </div>
 
@@ -45,15 +46,15 @@ export const ProjectsSection = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                      className="px-2 py-1 text-xs font-medium border border-white/20 rounded-full bg-white/10 text-white"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">
+                <h3 className="text-xl font-semibold mb-1 text-white"> {project.title}</h3>
+                <p className="text-white/80 text-sm mb-4">
                   {project.description}
                 </p>
                 <div className="flex justify-between items-center">
@@ -61,14 +62,14 @@ export const ProjectsSection = () => {
                     <a
                       href={project.demoUrl}
                       target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      className="text-white hover:text-[#FF9FFC] transition-colors duration-300"
                     >
                       <ExternalLink size={20} />
                     </a>
                     <a
                       href={project.githubUrl}
                       target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      className="text-white hover:text-[#FF9FFC] transition-colors duration-300"
                     >
                       <Github size={20} />
                     </a>

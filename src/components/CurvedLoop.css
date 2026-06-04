@@ -1,0 +1,30 @@
+.curved-loop-jacket {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.curved-loop-svg {
+  user-select: none;
+  width: 100%;
+  aspect-ratio: 100 / 12;
+  overflow: visible;
+  display: block;
+  font-size: 4rem;
+  fill: #ffffff;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.curved-loop-accent-text {
+  fill: #FF9FFC !important;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.15em;
+  font-size: 3rem;
+}
