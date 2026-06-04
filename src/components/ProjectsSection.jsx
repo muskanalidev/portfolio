@@ -1,4 +1,5 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const projects = [
   {
@@ -14,11 +15,34 @@ const projects = [
 ];
 
 export const ProjectsSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="projects" className="py-24 px-4 relative overflow-hidden">
-      <div className="container mx-auto max-w-5xl relative z-10">
+    <section ref={sectionRef} id="projects" className="py-24 px-4 relative overflow-hidden">
+      <div 
+        className={`container mx-auto max-w-5xl relative z-10 transition-all duration-1000 transform ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
+        }`}
+      >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-white">
-          My <span className="text-primary-foreground">Projects</span>
+          <span className="text-white">Projects</span>
         </h2>
 
         <p className="text-center text-white/75 mb-12 max-w-2xl mx-auto">
