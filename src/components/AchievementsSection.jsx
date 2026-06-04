@@ -3,7 +3,7 @@ import CircularGallery from "./CircularGallery";
 import muskan1 from "/Users/muskanali/my new website portfolio/src2/assets2/IMG_4892 2.jpg"
 import muskaan2 from "/Users/muskanali/my new website portfolio/src2/assets2/IMG_5968.jpg"
 import muskaan3 from "/Users/muskanali/my new website portfolio/src2/assets2/PHOTO-2026-02-19-17-12-43.jpg"
-import muskaan4 from "src2/assets2/WhatsApp Image 2026-04-23 at 11.34.22 AM.jpg"
+import muskaan4 from "/Users/muskanali/my new website portfolio/src2/assets2/WhatsApp Image 2026-04-23 at 11.34.22 AM.jpg"
 import muskaan5 from "/Users/muskanali/my new website portfolio/src2/assets2/WhatsApp Image 2026-06-04 at 5.15.32 PM.jpg"
 import muskaan6 from "/Users/muskanali/my new website portfolio/src2/assets2/WhatsApp Image 2026-06-04 at 5.18.51 PM.jpg"  
 
