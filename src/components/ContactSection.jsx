@@ -1,11 +1,11 @@
 import {
+  Github,
   Instagram,
   Linkedin,
   Mail,
   MapPin,
   Phone,
   Send,
-  Twitch,
   Twitter,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -107,8 +107,8 @@ export const ContactSection = () => {
                 <a href="#" target="_blank">
                   <Instagram />
                 </a>
-                <a href="#" target="_blank">
-                  <Twitch />
+                <a href="https://github.com/itsmuskanali" target="_blank" rel="noreferrer">
+                  <Github />
                 </a>
               </div>
             </div>

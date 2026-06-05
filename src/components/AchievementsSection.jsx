@@ -9,27 +9,27 @@ import muskaan6 from "/Users/muskanali/my new website portfolio/src2/assets2/Wha
 
 const galleryItems = [
   {
-    image: "muskan1",
+    image: muskan1,
     text: "Data Science",
   },
   {
-    image: "muskan2",
+    image: muskaan2,
     text: "ISRO Space Research",
   },
   {
-    image: "muskan3",
+    image: muskaan3,
     text: "Artificial Intelligence",
   },
   {
-    image: "muskan4",
+    image: muskaan4,
     text: "Business Intelligence",
   },
   {
-    image: "muskan5",
+    image: muskaan5,
     text: "Product Strategy",
   },
   {
-    image: "muskan6",
+    image: muskaan6,
     text: "Engineering Projects",
   },
 ];
