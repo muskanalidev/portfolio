@@ -16,8 +16,8 @@ export const RepellingProfile = ({ imageSrc = "/profile_pointcloud.png" }) => {
 
     // Scene setup
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 2000);
-    camera.position.z = 300;
+    const camera = new THREE.PerspectiveCamera(35, width / height, 0.1, 2000);
+    camera.position.z = 360;
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(width, height);
@@ -59,9 +59,9 @@ export const RepellingProfile = ({ imageSrc = "/profile_pointcloud.png" }) => {
       const data = imgData.data;
 
       // Scale factor: map the image pixel grid into 3D space
-      const spreadX = 1.3;
-      const spreadY = 1.3;
-      const depthScale = 25;
+      const spreadX = 1.25;
+      const spreadY = 1.25;
+      const depthScale = 8;
 
       for (let y = 0; y < sampleHeight; y++) {
         for (let x = 0; x < sampleWidth; x++) {
@@ -75,13 +75,15 @@ export const RepellingProfile = ({ imageSrc = "/profile_pointcloud.png" }) => {
             const brightness = (r + g + b) / 3;
             const px = (x - sampleWidth / 2) * spreadX;
             const py = -(y - sampleHeight / 2) * spreadY;
-            // Map brightness to depth: highlights project forward, darks project backward
-            const pz = (brightness / 255) * depthScale - depthScale * 0.5;
+            // Keep the portrait mostly flat so facial proportions stay natural.
+            const pz = ((brightness - 128) / 255) * depthScale;
 
             particles.push({
               x: px, y: py, z: pz,
               baseX: px, baseY: py, baseZ: pz,
-              r: r / 255, g: g / 255, b: b / 255,
+              r: Math.min(1, r / 255 * 1.25 + 0.06),
+              g: Math.min(1, g / 255 * 1.18 + 0.05),
+              b: Math.min(1, b / 255 * 1.12 + 0.04),
               vx: 0, vy: 0, vz: 0,
               driftAngle: Math.random() * Math.PI * 2,
               driftSpeed: 0.005 + Math.random() * 0.01,
@@ -124,11 +126,12 @@ export const RepellingProfile = ({ imageSrc = "/profile_pointcloud.png" }) => {
 
       const material = new THREE.PointsMaterial({
         vertexColors: true,
-        size: 2.2,
+        size: 2.35,
         map: circleTexture,
         transparent: true,
         alphaTest: 0.01,
         depthWrite: false,
+        opacity: 0.9,
         blending: THREE.NormalBlending,
         sizeAttenuation: true
       });
@@ -154,8 +157,8 @@ export const RepellingProfile = ({ imageSrc = "/profile_pointcloud.png" }) => {
     const tick = () => {
       // Smooth rotation from mouse
       if (group) {
-        const targetRotY = mouseRef.current.x * 0.4;
-        const targetRotX = -mouseRef.current.y * 0.3;
+        const targetRotY = mouseRef.current.x * 0.16;
+        const targetRotX = -mouseRef.current.y * 0.1;
         group.rotation.y += (targetRotY - group.rotation.y) * 0.06;
         group.rotation.x += (targetRotX - group.rotation.x) * 0.06;
       }
@@ -196,7 +199,7 @@ export const RepellingProfile = ({ imageSrc = "/profile_pointcloud.png" }) => {
           p.vy += (driftY - py) * springStrength;
           p.vz += (p.baseZ - pz) * springStrength;
 
-          // Mouse repulsion
+      // Pointer repulsion
           if (mouse3D) {
             const dx = px - mouse3D.x;
             const dy = py - mouse3D.y;
@@ -228,21 +231,36 @@ export const RepellingProfile = ({ imageSrc = "/profile_pointcloud.png" }) => {
 
     tick();
 
-    // Mouse handlers
-    const onMouseMove = (e) => {
+    const updatePointerPosition = (clientX, clientY) => {
       const rect = container.getBoundingClientRect();
-      mouseRef.current.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      mouseRef.current.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+      mouseRef.current.x = ((clientX - rect.left) / rect.width) * 2 - 1;
+      mouseRef.current.y = -((clientY - rect.top) / rect.height) * 2 + 1;
       mouseRef.current.active = true;
     };
-    const onMouseLeave = () => {
+
+    const onPointerMove = (e) => {
+      updatePointerPosition(e.clientX, e.clientY);
+    };
+
+    const onTouchMove = (e) => {
+      const touch = e.touches[0];
+      if (!touch) return;
+      updatePointerPosition(touch.clientX, touch.clientY);
+    };
+
+    const clearPointer = () => {
       mouseRef.current.x = 0;
       mouseRef.current.y = 0;
       mouseRef.current.active = false;
     };
 
-    container.addEventListener("mousemove", onMouseMove);
-    container.addEventListener("mouseleave", onMouseLeave);
+    container.addEventListener("pointermove", onPointerMove);
+    container.addEventListener("pointerleave", clearPointer);
+    container.addEventListener("pointercancel", clearPointer);
+    container.addEventListener("touchstart", onTouchMove, { passive: true });
+    container.addEventListener("touchmove", onTouchMove, { passive: true });
+    container.addEventListener("touchend", clearPointer);
+    container.addEventListener("touchcancel", clearPointer);
 
     // Resize handler
     const onResize = () => {
@@ -259,21 +277,26 @@ export const RepellingProfile = ({ imageSrc = "/profile_pointcloud.png" }) => {
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", onResize);
-      container.removeEventListener("mousemove", onMouseMove);
-      container.removeEventListener("mouseleave", onMouseLeave);
+      container.removeEventListener("pointermove", onPointerMove);
+      container.removeEventListener("pointerleave", clearPointer);
+      container.removeEventListener("pointercancel", clearPointer);
+      container.removeEventListener("touchstart", onTouchMove);
+      container.removeEventListener("touchmove", onTouchMove);
+      container.removeEventListener("touchend", clearPointer);
+      container.removeEventListener("touchcancel", clearPointer);
       if (renderer.domElement && renderer.domElement.parentNode) {
         renderer.domElement.parentNode.removeChild(renderer.domElement);
       }
       renderer.dispose();
       if (geometry) geometry.dispose();
     };
-  }, []);
+  }, [imageSrc]);
 
   return (
     <div
       ref={mountRef}
       className="relative w-full max-w-md overflow-hidden select-none"
-      style={{ aspectRatio: "4 / 5" }}
+      style={{ aspectRatio: "4 / 5", touchAction: "pan-y" }}
     >
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/60 text-sm z-30">

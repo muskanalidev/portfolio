@@ -9,7 +9,7 @@ const gradientMapping = {
   green: 'linear-gradient(hsl(123, 90%, 40%), hsl(108, 90%, 40%))'
 };
 
-const GlassIcons = ({ items, className }) => {
+const GlassIcons = ({ items, className, onItemClick }) => {
   const getBackgroundStyle = color => {
     if (gradientMapping[color]) {
       return { background: gradientMapping[color] };
@@ -20,7 +20,13 @@ const GlassIcons = ({ items, className }) => {
   return (
     <div className={`icon-btns ${className || ''}`}>
       {items.map((item, index) => (
-        <button key={index} className={`icon-btn ${item.customClass || ''}`} aria-label={item.label} type="button">
+        <button
+          key={index}
+          className={`icon-btn ${item.customClass || ''}`}
+          aria-label={item.label}
+          type="button"
+          onClick={() => onItemClick?.(item)}
+        >
           <span className="icon-btn__back" style={getBackgroundStyle(item.color)}></span>
           <span className="icon-btn__front">
             <span className="icon-btn__icon" aria-hidden="true">

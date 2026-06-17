@@ -1,10 +1,10 @@
 import React from "react";
 
 const galleryItems = [
-  { id: 1, title: "Football medals", subtitle: "Athlete identity" },
-  { id: 2, title: "Cats", subtitle: "Portraits" },
-  { id: 3, title: "Beaches", subtitle: "Sunsets" },
-  { id: 4, title: "Pilot dream", subtitle: "Aviation aspirations" },
+  { id: 1, title: "football medals", subtitle: "athlete identity" },
+  { id: 2, title: "cats", subtitle: "portraits" },
+  { id: 3, title: "beaches", subtitle: "sunsets" },
+  { id: 4, title: "pilot dream", subtitle: "aviation aspirations" },
 ];
 
 export const BeyondSection = () => {
@@ -12,7 +12,7 @@ export const BeyondSection = () => {
     <section id="beyond" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-          Beyond <span className="text-primary">Work</span>
+          beyond <span className="text-primary">work</span>
         </h2>
 
         <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -39,7 +39,7 @@ export const BeyondSection = () => {
             rel="noreferrer"
             className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors"
           >
-            View gallery component (Dome Gallery)
+            view gallery component (dome gallery)
           </a>
         </div>
       </div>

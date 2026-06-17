@@ -2,7 +2,9 @@ export const AboutSection = () => {
   return (
     <section id="about" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">About Me</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-left">
+          about me<span className="text-primary"> /&gt;</span>
+        </h2>
 
         <div className="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto">
           <div className="w-full md:w-2/3 space-y-8 text-left order-2 md:order-1">
@@ -13,14 +15,14 @@ export const AboutSection = () => {
 
             <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
               <h4 className="font-semibold text-lg mb-3">
-                Skills I’ve picked up
+                skills I’ve picked up
               </h4>
               <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-muted-foreground">
                 <li>SQL</li>
                 <li>Power BI</li>
-                <li>Data Analytics</li>
-                <li>Product Strategy</li>
-                <li>Business Intelligence</li>
+                <li>data analytics</li>
+                <li>product strategy</li>
+                <li>business intelligence</li>
                 <li>Python</li>
               </ul>
             </div>

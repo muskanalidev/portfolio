@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import GooeyNav from "./GooeyNav";
 
 const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About Me", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "Achievements", href: "#achievements" },
-  { name: "More About", href: "#more-about" },
+  { name: "home", href: "#hero" },
+  { name: "about me", href: "#about" },
+  { name: "projects", href: "#projects" },
+  { name: "achievements", href: "#achievements" },
+  { name: "more about", href: "#more-about" },
 ];
 
 export const Navbar = () => {
@@ -42,8 +42,8 @@ export const Navbar = () => {
           href="#hero"
         >
           <span className="relative z-10">
-            <span className="text-glow text-foreground"> Muskan </span>{" "}
-            Ali
+            <span className="text-glow text-foreground"> muskan </span>{" "}
+            ali
           </span>
         </a>
 

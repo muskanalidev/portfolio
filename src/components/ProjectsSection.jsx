@@ -1,14 +1,14 @@
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Rocket } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const projects = [
   {
     id: 1,
-    title: "Ozone Trend Analysis & Predictive Modelling @ISRO",
+    title: "ozone trend analysis & predictive modelling @ISRO",
     description:
       "Analyzing 50 years of satellite-based atmospheric ozone data to identify long-term trends and building predictive models to forecast ozone layer variations.",
     image: "/projects/ozone.jpg",
-    tags: ["Python", "Time-series", "Remote Sensing", "Data Analysis"],
+    tags: ["Python", "time-series", "remote sensing", "data analysis"],
     demoUrl: "#",
     githubUrl: "#",
   },
@@ -16,7 +16,9 @@ const projects = [
 
 export const ProjectsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [launchedProject, setLaunchedProject] = useState(null);
   const sectionRef = useRef(null);
+  const launchTimerRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -34,6 +36,24 @@ export const ProjectsSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    return () => {
+      if (launchTimerRef.current) {
+        window.clearTimeout(launchTimerRef.current);
+      }
+    };
+  }, []);
+
+  const triggerLaunch = (projectId) => {
+    setLaunchedProject(projectId);
+    if (launchTimerRef.current) {
+      window.clearTimeout(launchTimerRef.current);
+    }
+    launchTimerRef.current = window.setTimeout(() => {
+      setLaunchedProject(null);
+    }, 1200);
+  };
+
   return (
     <section ref={sectionRef} id="projects" className="py-24 px-4 relative overflow-hidden">
       <div 
@@ -42,7 +62,7 @@ export const ProjectsSection = () => {
         }`}
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-white">
-          <span className="text-white">Projects</span>
+          <span className="text-white">projects</span><span className="text-[#FF9FFC]"> /&gt;</span>
         </h2>
 
         <p className="text-center text-white/75 mb-12 max-w-2xl mx-auto">
@@ -54,9 +74,24 @@ export const ProjectsSection = () => {
           {projects.map((project, key) => (
             <div
               key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover text-white"
+              className={`project-launch-card group bg-card rounded-lg overflow-hidden shadow-xs text-white ${
+                launchedProject === project.id ? "is-launching" : ""
+              }`}
+              onPointerDown={() => triggerLaunch(project.id)}
+              onFocus={() => triggerLaunch(project.id)}
+              tabIndex={0}
             >
-              <div className="h-48 overflow-hidden">
+              <div className="project-launch-sky" aria-hidden="true">
+                <span className="project-orbit project-orbit-one" />
+                <span className="project-orbit project-orbit-two" />
+                <span className="project-spark project-spark-one" />
+                <span className="project-spark project-spark-two" />
+                <span className="project-spark project-spark-three" />
+                <Rocket className="project-rocket h-9 w-9" />
+                <span className="project-flame" />
+              </div>
+
+              <div className="project-image h-48 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -108,9 +143,9 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
-            href="https://github.com/machadop1407"
+            href="https://github.com/itsmuskanali"
           >
-            Check My Github <ArrowRight size={16} />
+            check my github <ArrowRight size={16} />
           </a>
         </div>
       </div>

@@ -10,27 +10,27 @@ import muskaan6 from "/Users/muskanali/my new website portfolio/src2/assets2/Wha
 const galleryItems = [
   {
     image: muskan1,
-    text: "Data Science",
+    text: "data science",
   },
   {
     image: muskaan2,
-    text: "ISRO Space Research",
+    text: "ISRO space research",
   },
   {
     image: muskaan3,
-    text: "Artificial Intelligence",
+    text: "artificial intelligence",
   },
   {
     image: muskaan4,
-    text: "Business Intelligence",
+    text: "business intelligence",
   },
   {
     image: muskaan5,
-    text: "Product Strategy",
+    text: "product strategy",
   },
   {
     image: muskaan6,
-    text: "Engineering Projects",
+    text: "engineering projects",
   },
 ];
 
@@ -42,7 +42,7 @@ export const AchievementsSection = () => {
         {/* Title Curved Loop */}
         <div className="w-full max-w-5xl mb-6 overflow-visible">
           <CurvedLoop
-            marqueeText="✦ A C H I E V E M E N T S ✦"
+            marqueeText="achievements ✦"
             speed={2}
             curveAmount={200}
             direction="left"

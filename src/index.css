@@ -164,6 +164,189 @@
   }
 }
 
+@layer components {
+  .project-launch-card {
+    position: relative;
+    isolation: isolate;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transform: translateY(0) scale(1);
+    transition:
+      transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 420ms ease,
+      box-shadow 420ms ease;
+  }
+
+  .project-launch-card::before {
+    content: "";
+    position: absolute;
+    inset: -35%;
+    z-index: 0;
+    opacity: 0;
+    background:
+      radial-gradient(circle at 78% 18%, rgba(255, 159, 252, 0.28), transparent 18%),
+      radial-gradient(circle at 18% 82%, rgba(82, 39, 255, 0.22), transparent 24%),
+      conic-gradient(from 180deg at 50% 50%, transparent, rgba(255, 255, 255, 0.14), transparent);
+    transform: rotate(0deg) scale(0.82);
+    transition: opacity 420ms ease, transform 900ms ease;
+  }
+
+  .project-launch-card:hover,
+  .project-launch-card:focus-visible,
+  .project-launch-card.is-launching {
+    transform: translateY(-12px) scale(1.018);
+    border-color: rgba(255, 159, 252, 0.36);
+    box-shadow:
+      0 18px 54px rgba(0, 0, 0, 0.35),
+      0 0 28px rgba(255, 159, 252, 0.16);
+  }
+
+  .project-launch-card:hover::before,
+  .project-launch-card:focus-visible::before,
+  .project-launch-card.is-launching::before {
+    opacity: 1;
+    transform: rotate(18deg) scale(1);
+  }
+
+  .project-launch-card > *:not(.project-launch-sky) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .project-image img {
+    filter: saturate(0.95) brightness(0.92);
+  }
+
+  .project-launch-card:hover .project-image img,
+  .project-launch-card:focus-visible .project-image img,
+  .project-launch-card.is-launching .project-image img {
+    filter: saturate(1.16) brightness(1.05);
+  }
+
+  .project-launch-sky {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .project-rocket {
+    position: absolute;
+    right: 1.25rem;
+    top: 1.2rem;
+    color: #ff9ffc;
+    filter: drop-shadow(0 0 12px rgba(255, 159, 252, 0.5));
+    opacity: 0.76;
+    transform: translate3d(0, 0, 0) rotate(-16deg) scale(0.92);
+    transition:
+      transform 760ms cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 280ms ease,
+      filter 420ms ease;
+  }
+
+  .project-flame {
+    position: absolute;
+    right: 2.75rem;
+    top: 4rem;
+    width: 0.52rem;
+    height: 3rem;
+    opacity: 0;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 159, 252, 0.76), rgba(82, 39, 255, 0));
+    filter: blur(1px);
+    transform: rotate(42deg) scaleY(0.35);
+    transform-origin: top;
+    transition: opacity 260ms ease, transform 620ms ease;
+  }
+
+  .project-launch-card:hover .project-rocket,
+  .project-launch-card:focus-visible .project-rocket,
+  .project-launch-card.is-launching .project-rocket {
+    opacity: 1;
+    filter: drop-shadow(0 0 18px rgba(255, 159, 252, 0.72));
+    transform: translate3d(4.3rem, -5.2rem, 0) rotate(22deg) scale(1.08);
+  }
+
+  .project-launch-card:hover .project-flame,
+  .project-launch-card:focus-visible .project-flame,
+  .project-launch-card.is-launching .project-flame {
+    opacity: 1;
+    transform: rotate(42deg) scaleY(1);
+  }
+
+  .project-orbit,
+  .project-spark {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 300ms ease, transform 700ms ease;
+  }
+
+  .project-orbit {
+    width: 11rem;
+    height: 11rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    right: -3.5rem;
+    top: -3.5rem;
+  }
+
+  .project-orbit-two {
+    width: 7rem;
+    height: 7rem;
+    right: -1.5rem;
+    top: -1.25rem;
+    border-color: rgba(255, 159, 252, 0.18);
+  }
+
+  .project-spark {
+    width: 0.38rem;
+    height: 0.38rem;
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: 0 0 14px rgba(255, 159, 252, 0.85);
+  }
+
+  .project-spark-one {
+    right: 7.5rem;
+    top: 2.1rem;
+  }
+
+  .project-spark-two {
+    right: 4.8rem;
+    top: 6.4rem;
+  }
+
+  .project-spark-three {
+    right: 10rem;
+    top: 8.2rem;
+  }
+
+  .project-launch-card:hover .project-orbit,
+  .project-launch-card:focus-visible .project-orbit,
+  .project-launch-card.is-launching .project-orbit {
+    opacity: 1;
+    transform: rotate(16deg) scale(1.08);
+  }
+
+  .project-launch-card:hover .project-spark,
+  .project-launch-card:focus-visible .project-spark,
+  .project-launch-card.is-launching .project-spark {
+    opacity: 1;
+    transform: translate3d(-1.1rem, 0.8rem, 0) scale(1.35);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-launch-card,
+    .project-launch-card::before,
+    .project-rocket,
+    .project-flame,
+    .project-orbit,
+    .project-spark {
+      transition: none;
+    }
+  }
+}
+
 
 
 #root {

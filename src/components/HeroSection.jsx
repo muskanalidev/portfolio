@@ -8,14 +8,14 @@ export const HeroSection = () => {
       className="relative min-h-screen px-4 pt-28 pb-20"
     >
       <div className="container mx-auto max-w-6xl relative z-10 grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
-        <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
+        <div className="order-1 lg:order-1 flex justify-center lg:justify-start">
           <RepellingProfile imageSrc="/profile.jpg" />
         </div>
 
-        <div className="order-1 lg:order-2 text-center lg:text-left space-y-8">
+        <div className="order-2 lg:order-2 text-center lg:text-left space-y-8">
           <div className="space-y-4">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight opacity-0 animate-fade-in-delay-1">
-              Hi, <span className="text-[#FF9FFC]">Muskan</span> here.
+              hi, <span className="text-[#FF9FFC]">muskan</span> here.
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 opacity-0 animate-fade-in-delay-2">
@@ -34,7 +34,7 @@ export const HeroSection = () => {
               href="#about"
               className="inline-flex flex-col items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              <span>Scroll</span>
+              <span>scroll</span>
               <ArrowDown className="h-5 w-5 text-primary animate-bounce" />
             </a>
           </div>

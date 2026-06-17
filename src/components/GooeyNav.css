@@ -29,6 +29,8 @@
 
 .gooey-nav-container {
   position: relative;
+  overflow: hidden;
+  padding: 4px 0;
 }
 
 .gooey-nav-container nav {

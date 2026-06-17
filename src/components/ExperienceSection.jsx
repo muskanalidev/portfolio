@@ -4,19 +4,19 @@ const experiences = [
   {
     id: 1,
     company: "ISRO",
-    position: "Ozone Trend Analysis & Predictive Modelling",
-    duration: "Apr 16, 2026 – Oct 16, 2026 (Ongoing)",
+    position: "ozone trend analysis & predictive modelling",
+    duration: "Apr 16, 2026 – Oct 16, 2026 (ongoing)",
     location: "India",
     description:
       "Analyzing 50 years of satellite-based atmospheric ozone data to identify long-term trends using data science and statistical methods. Building predictive models to forecast ozone layer variations and converting large-scale environmental datasets into actionable insights.",
     achievements: [
-      "Processing and cleaning multi-decadal remote sensing datasets",
-      "Performing trend analysis and statistical evaluation",
-      "Building time-series predictive models for ozone forecasting",
-      "Creating visualizations and dashboards to communicate results"
+      "processing and cleaning multi-decadal remote sensing datasets",
+      "performing trend analysis and statistical evaluation",
+      "building time-series predictive models for ozone forecasting",
+      "creating visualizations and dashboards to communicate results"
     ],
-    technologies: ["Python", "Time-series Analysis", "Data Visualization", "Remote Sensing"],
-    type: "Research Internship @ ISRO"
+    technologies: ["Python", "time-series analysis", "data visualization", "remote sensing"],
+    type: "research internship @ ISRO"
   },
 ];
 
@@ -25,7 +25,7 @@ export const ExperienceSection = () => {
     <section id="experience" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary">Experience</span>
+          my <span className="text-primary">experience</span>
         </h2>
 
         <div className="space-y-8">
@@ -68,7 +68,7 @@ export const ExperienceSection = () => {
               </p>
 
               <div className="mb-6">
-                <h4 className="font-semibold text-foreground mb-3">Key Achievements</h4>
+                <h4 className="font-semibold text-foreground mb-3">key achievements</h4>
                 <ul className="space-y-2">
                   {exp.achievements.map((achievement, idx) => (
                     <li key={idx} className="flex gap-3 text-muted-foreground">
@@ -91,7 +91,7 @@ export const ExperienceSection = () => {
               </div>
 
               <div className="mt-6 flex items-center text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="text-sm font-medium">Learn more</span>
+                <span className="text-sm font-medium">learn more</span>
                 <ArrowRight className="h-4 w-4 ml-2" />
               </div>
             </div>
