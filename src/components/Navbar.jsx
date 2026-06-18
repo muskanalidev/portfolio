@@ -33,12 +33,12 @@ export const Navbar = () => {
     <nav
       className={cn(
         "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+        isScrolled ? "py-2.5 bg-background/80 backdrop-blur-md shadow-xs" : "py-4"
       )}
     >
       <div className="container flex items-center justify-between">
         <a
-          className="text-xl font-bold text-primary flex items-center"
+          className="text-base font-bold text-primary flex items-center"
           href="#hero"
         >
           <span className="relative z-10">
@@ -52,8 +52,8 @@ export const Navbar = () => {
           <GooeyNav
             items={gooeyItems}
             particleCount={15}
-            particleDistances={[90, 10]}
-            particleR={100}
+            particleDistances={[74, 8]}
+            particleR={84}
             initialActiveIndex={0}
             animationTime={600}
             timeVariance={300}
@@ -80,7 +80,7 @@ export const Navbar = () => {
               : "opacity-0 pointer-events-none"
           )}
         >
-          <div className="flex flex-col space-y-8 text-xl">
+          <div className="flex flex-col space-y-5 text-base">
             {navItems.map((item, key) => (
               <a
                 key={key}

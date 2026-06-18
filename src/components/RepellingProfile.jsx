@@ -30,6 +30,7 @@ export const RepellingProfile = ({ imageSrc = "/profile_pointcloud.png" }) => {
     renderer.domElement.style.inset = "0";
     renderer.domElement.style.width = "100%";
     renderer.domElement.style.height = "100%";
+    renderer.domElement.style.zIndex = "2";
 
     let points = null;
     let geometry = null;
@@ -46,7 +47,7 @@ export const RepellingProfile = ({ imageSrc = "/profile_pointcloud.png" }) => {
 
     img.onload = () => {
       // Use reasonable sample resolution for detailed image features
-      const sampleWidth = 150;
+      const sampleWidth = 165;
       const sampleHeight = Math.round((img.height / img.width) * sampleWidth);
 
       const canvas2d = document.createElement("canvas");
@@ -81,9 +82,9 @@ export const RepellingProfile = ({ imageSrc = "/profile_pointcloud.png" }) => {
             particles.push({
               x: px, y: py, z: pz,
               baseX: px, baseY: py, baseZ: pz,
-              r: Math.min(1, r / 255 * 1.25 + 0.06),
-              g: Math.min(1, g / 255 * 1.18 + 0.05),
-              b: Math.min(1, b / 255 * 1.12 + 0.04),
+              r: Math.min(1, r / 255 * 1.28 + 0.07),
+              g: Math.min(1, g / 255 * 1.2 + 0.055),
+              b: Math.min(1, b / 255 * 1.15 + 0.045),
               vx: 0, vy: 0, vz: 0,
               driftAngle: Math.random() * Math.PI * 2,
               driftSpeed: 0.005 + Math.random() * 0.01,
@@ -126,12 +127,12 @@ export const RepellingProfile = ({ imageSrc = "/profile_pointcloud.png" }) => {
 
       const material = new THREE.PointsMaterial({
         vertexColors: true,
-        size: 2.35,
+        size: 2.4,
         map: circleTexture,
         transparent: true,
         alphaTest: 0.01,
         depthWrite: false,
-        opacity: 0.9,
+        opacity: 0.94,
         blending: THREE.NormalBlending,
         sizeAttenuation: true
       });
@@ -295,7 +296,7 @@ export const RepellingProfile = ({ imageSrc = "/profile_pointcloud.png" }) => {
   return (
     <div
       ref={mountRef}
-      className="relative w-full max-w-md overflow-hidden select-none"
+      className="profile-pointcloud relative w-full max-w-md overflow-hidden select-none"
       style={{ aspectRatio: "4 / 5", touchAction: "pan-y" }}
     >
       {loading && (

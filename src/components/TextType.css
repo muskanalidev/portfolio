@@ -1,0 +1,25 @@
+.text-type {
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+.text-type:is(h1, h2, h3, h4, h5, h6) {
+  display: block;
+  min-height: 1.15em;
+}
+
+.text-type__content {
+  display: inline;
+}
+
+.text-type__cursor {
+  margin-left: 0.25rem;
+  display: inline-block;
+  opacity: 1;
+  color: #ff9ffc;
+  text-shadow: 0 0 14px rgba(255, 159, 252, 0.55);
+}
+
+.text-type__cursor--hidden {
+  display: none;
+}

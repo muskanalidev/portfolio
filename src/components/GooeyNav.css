@@ -41,13 +41,14 @@
 
 .gooey-nav-container nav ul {
   display: flex;
-  gap: 0.5em;
+  gap: 1.35em;
   list-style: none;
-  padding: 0 0.5em;
+  padding: 0 0.75em;
   margin: 0;
   position: relative;
   z-index: 3;
   color: white;
+  font-size: 0.92rem;
   text-shadow: 0 1px 1px hsl(205deg 30% 10% / 0.2);
 }
 
@@ -61,12 +62,13 @@
     box-shadow 0.3s ease;
   box-shadow: 0 0 0.5px 1.5px transparent;
   color: white;
-  font-size: 0.9rem;
 }
 
 .gooey-nav-container nav ul li a {
   display: inline-block;
-  padding: 0.5em 0.8em;
+  position: relative;
+  z-index: 2;
+  padding: 0.55em 0.9em;
   text-decoration: none;
   color: inherit;
 }
@@ -92,6 +94,10 @@
   text-shadow: none;
 }
 
+.gooey-nav-container nav ul li.active a {
+  color: transparent;
+}
+
 .gooey-nav-container nav ul li.active::after {
   opacity: 1;
   transform: scale(1);
@@ -107,7 +113,7 @@
   pointer-events: none;
   display: grid;
   place-items: center;
-  z-index: 1;
+  z-index: 4;
 }
 
 .gooey-nav-container .effect.text {
@@ -122,6 +128,7 @@
 .gooey-nav-container .effect.filter {
   filter: blur(7px) contrast(100) blur(0);
   mix-blend-mode: lighten;
+  z-index: 1;
 }
 
 .gooey-nav-container .effect.filter::before {
@@ -158,8 +165,8 @@
 .point {
   display: block;
   opacity: 0;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border-radius: 100%;
   transform-origin: center;
 }
@@ -167,8 +174,8 @@
 .particle {
   --time: 5s;
   position: absolute;
-  top: calc(50% - 8px);
-  left: calc(50% - 8px);
+  top: calc(50% - 7px);
+  left: calc(50% - 7px);
   animation: particle calc(var(--time)) ease 1 -350ms;
 }
 

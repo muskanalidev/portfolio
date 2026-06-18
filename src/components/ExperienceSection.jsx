@@ -1,4 +1,6 @@
 import { Briefcase, Calendar, MapPin, ArrowRight } from "lucide-react";
+import AnimatedHeading from "./AnimatedHeading";
+import SplitHeading from "./SplitHeading";
 
 const experiences = [
   {
@@ -22,27 +24,33 @@ const experiences = [
 
 export const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-24 px-4 relative">
+    <section id="experience" className="py-16 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          my <span className="text-primary">experience</span>
-        </h2>
+        <AnimatedHeading
+          as="h2"
+          text="my experience"
+          className="text-xl md:text-2xl font-bold mb-6 text-center"
+        />
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           {experiences.map((exp) => (
             <div
               key={exp.id}
-              className="group gradient-border rounded-lg p-8 card-hover transition-all duration-300 bg-card/50 backdrop-blur-sm"
+              className="group gradient-border rounded-lg p-5 card-hover transition-all duration-300 bg-card/50 backdrop-blur-sm"
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                 <div className="flex items-start gap-4 mb-4 md:mb-0">
-                  <div className="p-3 rounded-full bg-primary/20">
-                    <Briefcase className="h-6 w-6 text-primary" />
+                  <div className="p-2.5 rounded-full bg-primary/20">
+                    <Briefcase className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold text-foreground">
-                      {exp.position}
-                    </h3>
+                    <SplitHeading
+                      tag="h3"
+                      text={exp.position}
+                      delay={14}
+                      className="text-base md:text-lg font-semibold text-foreground"
+                      textAlign="left"
+                    />
                     <p className="text-primary font-medium mt-1">{exp.company}</p>
                   </div>
                 </div>
@@ -52,7 +60,7 @@ export const ExperienceSection = () => {
                 </span>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-6 text-sm text-muted-foreground mb-6">
+              <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground mb-5">
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
                   <span>{exp.duration}</span>
@@ -63,12 +71,18 @@ export const ExperienceSection = () => {
                 </div>
               </div>
 
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-muted-foreground mb-5">
                 {exp.description}
               </p>
 
-              <div className="mb-6">
-                <h4 className="font-semibold text-foreground mb-3">key achievements</h4>
+              <div className="mb-5">
+                <SplitHeading
+                  tag="h4"
+                  text="key achievements"
+                  delay={16}
+                  className="font-semibold text-foreground mb-3"
+                  textAlign="left"
+                />
                 <ul className="space-y-2">
                   {exp.achievements.map((achievement, idx) => (
                     <li key={idx} className="flex gap-3 text-muted-foreground">

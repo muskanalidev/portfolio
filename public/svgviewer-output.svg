@@ -1,29 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg width="800" height="800" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="chromeSparkFill" x1="7" y1="5" x2="24" y2="27">
+    <linearGradient id="sparkFill" x1="118" y1="122" x2="392" y2="402" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="0.35" stop-color="#cfd0dc"/>
-      <stop offset="0.58" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#8d8fa0"/>
+      <stop offset="0.36" stop-color="#eef7ff"/>
+      <stop offset="0.58" stop-color="#bfcbd6"/>
+      <stop offset="0.78" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#9aa7b2"/>
     </linearGradient>
-    <linearGradient id="chromeSparkStroke" x1="8" y1="4" x2="24" y2="28">
+    <linearGradient id="sparkEdge" x1="100" y1="90" x2="412" y2="422" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#737586"/>
+      <stop offset="0.44" stop-color="#59646f"/>
+      <stop offset="1" stop-color="#f7fbff"/>
     </linearGradient>
+    <filter id="lift" x="-18%" y="-18%" width="136%" height="136%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.42"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#ffffff" flood-opacity="0.55"/>
+    </filter>
   </defs>
+
   <path
-    d="M14.5 2.5C16.15 10.9 20.1 14.85 28.5 16.5C20.1 18.15 16.15 22.1 14.5 30.5C12.85 22.1 8.9 18.15 0.5 16.5C8.9 14.85 12.85 10.9 14.5 2.5Z"
-    fill="url(#chromeSparkFill)"
-    stroke="url(#chromeSparkStroke)"
-    stroke-width="1.7"
-    stroke-linejoin="round"
+    d="M256 31C276 157 355 236 481 256C355 276 276 355 256 481C236 355 157 276 31 256C157 236 236 157 256 31Z"
+    fill="#172018"
+    opacity="0.94"
   />
   <path
-    d="M25 4.5C25.55 7.35 26.9 8.7 29.75 9.25C26.9 9.8 25.55 11.15 25 14C24.45 11.15 23.1 9.8 20.25 9.25C23.1 8.7 24.45 7.35 25 4.5Z"
-    fill="#ffffff"
-    stroke="#bfc0cf"
-    stroke-width="0.8"
+    d="M256 54C273 169 343 239 458 256C343 273 273 343 256 458C239 343 169 273 54 256C169 239 239 169 256 54Z"
+    fill="url(#sparkFill)"
+    stroke="url(#sparkEdge)"
+    stroke-width="18"
     stroke-linejoin="round"
+    filter="url(#lift)"
+  />
+  <path
+    d="M256 116C268 195 317 244 396 256C317 268 268 317 256 396C244 317 195 268 116 256C195 244 244 195 256 116Z"
+    fill="#ffffff"
+    opacity="0.78"
+  />
+  <path
+    d="M292 160C314 208 350 239 422 256C334 267 295 306 278 358C289 291 291 224 292 160Z"
+    fill="#11151a"
+    opacity="0.34"
   />
 </svg>

@@ -1,5 +1,5 @@
-import CurvedLoop from "./CurvedLoop";
 import CircularGallery from "./CircularGallery";
+import AnimatedHeading from "./AnimatedHeading";
 import muskan1 from "../../src2/assets2/IMG_4892 2.jpg";
 import muskaan2 from "../../src2/assets2/IMG_5968.jpg";
 import muskaan3 from "../../src2/assets2/PHOTO-2026-02-19-17-12-43.jpg";
@@ -32,27 +32,33 @@ const galleryItems = [
     image: muskaan6,
     text: "engineering projects",
   },
+  {
+    image: "/projects/achievement-img-8780.jpg",
+    text: "medals & competitions",
+  },
+  {
+    image: "/projects/achievement-img-5954.jpg",
+    text: "ISRO internship",
+  },
+  {
+    image: "/projects/achievement-img-6002.jpg",
+    text: "atmospheric research",
+  },
 ];
 
 export const AchievementsSection = () => {
   return (
-    <section id="achievements" className="py-20 px-4 relative overflow-hidden">
+    <section id="achievements" className="py-16 px-4 relative overflow-hidden">
       <div className="container mx-auto max-w-6xl relative z-10 flex flex-col items-center">
         
-        {/* Title Curved Loop */}
-        <div className="w-full max-w-5xl mb-6 overflow-visible">
-          <CurvedLoop
-            marqueeText="achievements ✦"
-            speed={2}
-            curveAmount={200}
-            direction="left"
-            interactive={true}
-            className="curved-loop-accent-text"
-          />
-        </div>
+        <AnimatedHeading
+          as="h2"
+          text="achievements />"
+          className="text-xl md:text-2xl font-bold mb-6 text-center text-white"
+        />
 
         {/* Dome Gallery Wrapper */}
-        <div className="w-full relative h-[450px] md:h-[550px] overflow-hidden rounded-3xl border border-white/5 bg-black/10 backdrop-blur-[2px]">
+        <div className="w-full relative h-[400px] md:h-[500px] overflow-hidden rounded-2xl border border-white/5 bg-black/10 backdrop-blur-[2px]">
           <CircularGallery
             items={galleryItems}
             bend={-3}

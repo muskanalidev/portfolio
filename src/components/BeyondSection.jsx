@@ -9,21 +9,21 @@ const galleryItems = [
 
 export const BeyondSection = () => {
   return (
-    <section id="beyond" className="py-24 px-4 relative">
+    <section id="beyond" className="py-16 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+        <h2 className="text-xl md:text-2xl font-bold mb-5 text-center">
           beyond <span className="text-primary">work</span>
         </h2>
 
-        <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground mb-7 max-w-2xl mx-auto">
           Open for collaborations — a curated identity gallery highlighting
           athletic achievements, travel photography, and creative projects.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {galleryItems.map((g) => (
-            <div key={g.id} className="bg-card p-6 rounded-lg text-center">
-              <div className="h-40 bg-secondary/20 rounded-md mb-4 flex items-center justify-center">
+            <div key={g.id} className="bg-card p-4 rounded-lg text-center">
+              <div className="h-36 bg-secondary/20 rounded-md mb-4 flex items-center justify-center">
                 <span className="text-muted-foreground">{g.title}</span>
               </div>
               <h4 className="font-semibold">{g.title}</h4>
@@ -37,7 +37,7 @@ export const BeyondSection = () => {
             href="https://reactbits.dev/components/dome-gallery"
             target="_blank"
             rel="noreferrer"
-            className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors"
+            className="px-4 py-2 rounded-full border border-primary text-primary text-sm hover:bg-primary/10 transition-colors"
           >
             view gallery component (dome gallery)
           </a>
